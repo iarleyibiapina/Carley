@@ -1,0 +1,13 @@
+.error {
+  margin-left: 50%;
+  margin-top: 50px;
+  font-size: 1.2em;
+  width: 355px;
+  padding: 5px 10px;
+  margin-bottom: 8px;
+  /* border: 3px solid #00285f; */
+  color: red;
+  background-color: #00285f;
+  text-align: center;
+  border-radius: 20px;
+}

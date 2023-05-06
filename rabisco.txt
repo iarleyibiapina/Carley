@@ -1,0 +1,28 @@
+2.0 utilizando PDO.
+
+CONECTA (V)
+CAD_USUARIO (V)
+PROCESSA_USUARIO (V) conectado com banco (precisa fazer teste de dados iguais)
+PROCESSA_LOGIN (V) esta fazendo verificaçao (implementar processo no cadastro)
+LOGOUT (V)
+
+
+BUGS: 
+quando cria anuncio e troca de conta, o anuncio criado na outra conta é inserido
+dentro do anuncio anterior.
+
+
+CONSERTAR BACK TO TOP
+CONSERTAR DIV DE AVISO AO INPUT VAZIO E EXISTENTE
+usar erros do index no cadastro.
+
+usar sidenav push do 
+https://www.w3schools.com/howto/howto_js_sidenav.asp
+
+
+SIDENAV:
+
+filtro de elementos(que vai aparecer)
+https://www.w3schools.com/howto/howto_js_filter_elements.asp
+sair
+whatsapp (entrar em contato)
