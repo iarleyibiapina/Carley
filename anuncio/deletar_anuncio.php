@@ -58,9 +58,9 @@ if(!empty($_GET['id_anuncio'])){
         <div class="form-container">
             <form action="processa_anuncio.php" method="post">
                 <div class="inputs">
-                <input type="text" autofocus placeholder="Titulo" name="titulo" value="<?php echo $result['titulo']?>">
-                <textarea value="<?php echo $result['descricao'] ?>" style="resize:none;" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30"></textarea>
-                <input type="file" name="foto">
+                <input type="text" autofocus placeholder="Titulo" name="titulo" value="<?php echo $result['titulo']?>" readonly>
+                <textarea value="<?php echo $result['descricao'] ?>" style="resize:none;" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30" readonly></textarea>
+                <input type="file" name="foto"V readonly>
                 </div>
                 <div class="btn" style="justify-content:center";>
                 <!-- apenas invertendo hover btn -->

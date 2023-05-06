@@ -67,15 +67,16 @@ elseif ($_POST['enviarDados'] == 'ALT'){
 //EXCLUIR
 elseif($_POST['enviarDados'] == 'DEL') {
     try{
+        //SQL
         $sql = "DELETE FROM anuncio_pdo WHERE id_anuncio = :id_anuncio AND id_usuario = :idusuario";
-
-        $stmt = $pdo->prepare($sql);
-
+        //DADOS
         $dados = array(
-        ':id_anuncio' => $_POST['id_anuncio'],
-        ':idusuario' => $_SESSION['idusuario']
+            ':id_anuncio' => $_POST['id_anuncio'],
+            ':idusuario' => $_SESSION['idusuario']
         );
-
+        //PDO
+        $stmt = $pdo->prepare($sql);
+        //DELETE
         if($stmt->execute($dados)){
             header("Location: ../painel_logado/painel.php?anuncio_erro=Deletado");
         } else {

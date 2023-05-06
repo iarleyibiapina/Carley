@@ -26,3 +26,20 @@ filtro de elementos(que vai aparecer)
 https://www.w3schools.com/howto/howto_js_filter_elements.asp
 sair
 whatsapp (entrar em contato)
+
+SQL
+
+CREATE TABLE usuario(
+		id_usuario serial,
+		nome varchar(255),
+		senha varchar(255),
+		email varchar(255),
+		telefone varchar(255),
+		data_nascimento varchar(255)
+	);
+	CREATE TABLE anuncio_pdo(
+		id_anuncio serial,
+		id_usuario integer,
+		titulo varchar(255),
+		descricao varchar(255)
+	);
