@@ -3,8 +3,8 @@ const linkInterno = document.querySelector(
 );
 
 function scrollTop() {
-  e.preventDefault();
-  const href = e.currentTarget.getAttribute("href");
+  event.preventDefault();
+  const href = event.currentTarget.getAttribute("href");
   const topo = document.querySelector(href);
   topo.scrollIntoView({
     behavior: "smooth",
