@@ -43,3 +43,5 @@ CREATE TABLE usuario(
 		titulo varchar(255),
 		descricao varchar(255)
 	);
+
+	

@@ -72,6 +72,12 @@ main {
   justify-items: center;
 }
 
+.descricao {
+  max-width: 350px;
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+
 .header-card {
   display: flex;
   justify-content: space-between;

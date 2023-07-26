@@ -6,6 +6,7 @@ if(empty($_SESSION)){
     die();
 }
 // --------------------------------
+
 if(!empty($_POST)){
 //chegando dados do formulario pelo POST, verifica se é CADastro / ALTerar / DELetar
 
@@ -46,11 +47,15 @@ elseif ($_POST['enviarDados'] == 'ALT'){
             id_usuario = :id_usuario";
         //DADOS
         $dados = array(
-            ':id_anuncio' => $_POST['id_anuncio'],
+            ':id_anuncio' => $_GET['id_anuncio'],
             ':id_usuario' => $_SESSION['idusuario'],
             ':titulo' => $_POST['titulo'],
             ':descricao' => $_POST['descricao']
         );
+        echo 'id anuncio:'.$_GET['id_anuncio'];
+        echo 'id usuario passando:'.$_SESSION['idusuario'];
+        echo "<br>";
+
         //PDO
         $stmt = $pdo->prepare($sql);
         //EXECUTANDO SQL
@@ -71,7 +76,7 @@ elseif($_POST['enviarDados'] == 'DEL') {
         $sql = "DELETE FROM anuncio_pdo WHERE id_anuncio = :id_anuncio AND id_usuario = :idusuario";
         //DADOS
         $dados = array(
-            ':id_anuncio' => $_POST['id_anuncio'],
+            ':id_anuncio' => $_GET['id_anuncio'],
             ':idusuario' => $_SESSION['idusuario']
         );
         //PDO

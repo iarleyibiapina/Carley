@@ -34,6 +34,8 @@ if(!empty($_GET['id_anuncio'])){
 
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -58,11 +60,12 @@ if(!empty($_GET['id_anuncio'])){
         </nav>
     </header>
     <div class="container">
-        <div class="form-container">
-            <form action="processa_anuncio.php" method="post">
+        <div class="form-container">]
+            <form action="processa_anuncio.php?id_anuncio=<?php echo $result['id_anuncio'];?>" method="post">
                 <div class="inputs">
                 <input type="text" value="<?php echo $result['titulo'] ?>" autofocus placeholder="Titulo" name="titulo">
-                <textarea style="resize:none;" value="<?php echo $result['descricao'] ?>" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30"></textarea>
+                <!-- <textarea style="resize:none;" value="<?php echo $result['descricao'] ?>" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30"></textarea> -->
+                <textarea style="resize:none;" value="" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30"><?php echo $result['descricao'] ?></textarea>
                 <input type="file" name="foto">
                 </div>
                 <div class="btn">    
