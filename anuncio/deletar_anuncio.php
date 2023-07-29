@@ -61,7 +61,7 @@ if(!empty($_GET['id_anuncio'])){
                 <input type="text" autofocus placeholder="Titulo" name="titulo" value="<?php echo $result['titulo']?>" readonly>
                 <textarea style="resize:none;" value="" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30" readonly><?php echo $result['descricao'] ?></textarea>
 
-                <input type="file" name="foto"V readonly>
+                <input type="file" name="foto" readonly>
                 </div>
                 <div class="btn" style="justify-content:center";>
                 <!-- apenas invertendo hover btn -->

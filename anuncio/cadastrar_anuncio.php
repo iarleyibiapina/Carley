@@ -34,7 +34,7 @@ if(empty($_SESSION)){
             <form action="./processa_anuncio.php" method="post">
                 <div class="inputs">
                     <!-- titulo -->
-                <input type="text" autofocus placeholder="Titulo" name="titulo">
+                <input type="text" autofocus placeholder="Titulo" name="titulo" maxlength="50">
                 <!-- descricao -->
                 <textarea style="resize:none;" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30"></textarea>
                 <!-- arquivo de foto / inutil -->

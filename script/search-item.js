@@ -1,6 +1,5 @@
-var input = document.getElementById("pesquisa").value;
-
 function search() {
+  var input = document.getElementById("pesquisa").value;
   input = input.toLowerCase();
   let card_title = document.getElementsByClassName("card-title");
   let card = document.getElementsByClassName("card-item");

@@ -29,7 +29,7 @@ header nav {
   background-color: var(--blue);
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 5px 20px;
   color: var(--gray);
 }
 
@@ -71,11 +71,17 @@ main {
   display: grid;
   justify-items: center;
 }
+.content:hover {
+  scale: 1.05;
+  box-shadow: 3px 3px 2px #636363;
+  transition: ease;
+}
 
 .descricao {
   max-width: 350px;
   overflow-x: hidden;
   word-wrap: break-word;
+  text-align: center;
 }
 
 .header-card {
@@ -85,8 +91,21 @@ main {
   align-items: center;
 }
 
+.user-icon {
+  min-width: 30px;
+  min-height: 30px;
+  color: var(--gray);
+}
+
+.header-card .user-icon {
+  color: black;
+}
+
 .header-card h2 {
+  max-width: 200px;
   font-size: small;
+  word-break: break-word;
+  margin: 5px;
 }
 
 .header-card a {

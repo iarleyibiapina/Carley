@@ -15,7 +15,7 @@ if(!empty($_POST)){
 if($_POST['enviarDados'] == 'CAD'){
     try{
     //SQL
-    $sql = "INSERT INTO anuncio_pdo (id_usuario, titulo, descricao) VALUES (:id_usuario,:titulo,:descricao)";
+    $sql = "INSERT INTO anuncio_pdo (id_usuario, titulo, descricao, nomeusuariopostado) VALUES (:id_usuario,:titulo,:descricao, :nomeusuariopostado)";
     //PDO
     $stmt = $pdo->prepare($sql);
     //DADOS
@@ -24,7 +24,8 @@ if($_POST['enviarDados'] == 'CAD'){
         // conteudo da SESSION é passada
         ':id_usuario' => $_SESSION['idusuario'],
         ':titulo' => $_POST['titulo'],
-        ':descricao' => $_POST['descricao']
+        ':descricao' => $_POST['descricao'],
+        ':nomeusuariopostado' => $_SESSION['nome']
     );
     //INSERT
     if($stmt->execute($dados)){
@@ -41,7 +42,8 @@ elseif ($_POST['enviarDados'] == 'ALT'){
         //SQL
         $sql = "UPDATE anuncio_pdo SET 
             titulo = :titulo,
-            descricao = :descricao
+            descricao = :descricao,
+            nomeusuariopostado = :nomeusuariopostado
             WHERE
             id_anuncio = :id_anuncio AND
             id_usuario = :id_usuario";
@@ -50,12 +52,9 @@ elseif ($_POST['enviarDados'] == 'ALT'){
             ':id_anuncio' => $_GET['id_anuncio'],
             ':id_usuario' => $_SESSION['idusuario'],
             ':titulo' => $_POST['titulo'],
-            ':descricao' => $_POST['descricao']
+            ':descricao' => $_POST['descricao'],
+            ':nomeusuariopostado' => $_SESSION['nome']
         );
-        echo 'id anuncio:'.$_GET['id_anuncio'];
-        echo 'id usuario passando:'.$_SESSION['idusuario'];
-        echo "<br>";
-
         //PDO
         $stmt = $pdo->prepare($sql);
         //EXECUTANDO SQL

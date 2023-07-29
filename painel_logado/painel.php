@@ -10,12 +10,9 @@ if(empty($_SESSION)){
 
 // EXIBINDO ANUNCIOS
 // OU APENAS DO USUARIO OU TUDO
-
 $anuncios = array();
 
 // APENAS DO USUARIO
-
-
 if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
     try{
     $sql = "SELECT * FROM anuncio_pdo WHERE id_usuario = :idusuario ORDER BY id_anuncio ASC";
@@ -44,6 +41,7 @@ if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
         die($e->getMessage());
     } 
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -62,6 +60,7 @@ if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
             <h1>Bem vindo, <?php echo $_SESSION['nome']?>!</h1>
         </div>
         <nav>
+            <a href="../pagina de usuario/userProfile.php" title="Abrir para perfil"><ion-icon class="user-icon" name="person-circle-outline"></ion-icon></a>
             <ul><a href="../anuncio/cadastrar_anuncio.php">Inserir anuncio</a></ul>
             <!-- se 1, atualiza a pagina verifica IF em cima e retorna sql com dados apenas do usuario -->
             <ul><a href="./painel.php?meus_anuncios=1">Meus anuncios</a></ul>
@@ -94,6 +93,8 @@ if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
             <!-- COMEÇO ANUNCIO -->
         <div class="content">
             <div class="header-card">
+                <!-- colocar <a> e abrir modal -->
+                <div title="Postado por: <?php echo $a["nomeusuariopostado"]?>"><ion-icon class="user-icon" name="person-outline"></ion-icon></div>
             <h2 class="tituloProduto"><?php echo $a['titulo'] ?></h2>
             <!-- CASO ANUNCIO DO USUARIO -->
             <?php if($a['id_usuario'] == $_SESSION['idusuario']): ?>
@@ -103,7 +104,6 @@ if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
             </div>
             <img style="width: 300px; height: 200px;"src="../images/car-card.png" alt="imgProdutoAqui">
             <p ><strong>Descrição</strong></p>
-            <!-- se ultrapassar so adicionar propriedade que corta contudo -->
             <p class="descricao"><?php echo $a['descricao'] ?></p>
         </div>
         <!-- FIM ANUNCIO -->
@@ -111,6 +111,8 @@ if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
         <?php } ?>
 
     </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </body>
 </html>
 
