@@ -15,7 +15,7 @@ if(empty($_SESSION)){
     <title>Painel <?php echo $_SESSION['nome']?></title>
     <link rel="icon" href="../images/logo.png" />
     <link rel="stylesheet" href="../style/painel_logado.css">
-    <link rel="stylesheet" href="./anuncio.css">
+    <link rel="stylesheet" href="../style/anuncio.css">
 </head>
 <body>
     <header>

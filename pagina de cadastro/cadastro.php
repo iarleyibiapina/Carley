@@ -1,7 +1,7 @@
 <?php
+include('../conecta/conexao.php');
 session_start();
-// include('../php/conexao.php');
-require_once '../conecta/conexao.php';
+// require_once '../conecta/conexao.php';
 
 //se formulario vazio
 if(empty($_POST['nome']) || empty($_POST['senha'])|| empty($_POST['telefone']) || empty($_POST['email']) || empty($_POST['dataNascimento'])){
@@ -37,19 +37,18 @@ if(!empty($_POST)){
 
         //executando INSERCAO COM SQL
         if($stmt->execute($dados)){
-             header("location ../index.html?msgSucesso= Cadastro Sucedido");
+             header("location: ../index.html?msgSucesso= Cadastro Sucedido");
         }
     
     // caso de erro no processo de cadastro
     } catch (PDOException $e) {
-        header("location ../index.html?msgErro= Falha ao cadastrar...");
+        header("location: ../index.html?msgErro= Falha ao cadastrar...");
         die($e->getMessage());
     }
 }
 // se tiver dados vazios ou existentes
 else {
-    header("Location: ../index.html");
-     header("location ../index.html?msgErro= Erro de Acesso");
+     header("location: ../index.html?msgErro= Erro de Acesso");
 }
 //finaliza processo
 die();

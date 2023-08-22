@@ -1,3 +1,4 @@
+
 const scrolAnima = document.querySelector('[data-anima="scroll"]');
 
 const metadeWindow = window.innerHeight * 3.3;

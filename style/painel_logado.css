@@ -47,16 +47,44 @@ nav ul:hover {
   transition: 200ms ease;
 }
 
+nav .hover-icon {
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+nav .hover-icon:hover {
+  scale: 1.2;
+  padding: 0 20px;
+  text-shadow: 4px 4px black;
+  transition: 200ms ease;
+}
+
 ul {
   padding: 0 20px;
 }
 
+.user-icon {
+  cursor: pointer;
+}
+
 main {
+  width: 100%;
+}
+
+/* BODY da pagina */
+.announcement {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+main {
+  position: relative;
 }
 
 .content {

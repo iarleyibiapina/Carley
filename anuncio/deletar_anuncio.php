@@ -40,7 +40,7 @@ if(!empty($_GET['id_anuncio'])){
     <title>Painel <?php echo $_SESSION['nome']?></title>
     <link rel="icon" href="../images/logo.png" />
     <link rel="stylesheet" href="../style/painel_logado.css">
-    <link rel="stylesheet" href="./anuncio.css">
+    <link rel="stylesheet" href="../style/anuncio.css">
 </head>
 <body>
     <header>
@@ -64,7 +64,6 @@ if(!empty($_GET['id_anuncio'])){
                 <input type="file" name="foto" readonly>
                 </div>
                 <div class="btn" style="justify-content:center";>
-                <!-- apenas invertendo hover btn -->
                     <style>
                         .form-container a:hover {
                         transform: scale(1.05);
@@ -78,7 +77,6 @@ if(!empty($_GET['id_anuncio'])){
                         }
                     </style>
                     <a href="../painel_logado/painel.php">Cancelar</a>
-                <!-- <input type="reset" value="Resetar"> -->
                 <button name="enviarDados" value="DEL" type="submit">Confirmar</button>
                 </div>
             </form>

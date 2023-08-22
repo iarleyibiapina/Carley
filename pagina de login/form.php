@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../images/logo.png" />
     <title>Login</title>
-    <link rel="stylesheet" href="form.css" />
+    <link rel="stylesheet" href="../style/form.css" />
     <link rel="stylesheet" href="../style/warning.css" />
   </head>
   <body>
@@ -45,7 +45,6 @@ session_start();
         <input type="password" placeholder="Password" name="senha" />
         <div class="btn">
           <input type="submit" name="login" value="Login" />
-          <!-- <span class="btn_voltar"> -->
           <div class="btn_invisivel">
             <a href="../index.html">
               <span>Voltar</span>
@@ -53,6 +52,7 @@ session_start();
           </div>
         </div>
       </form>
+    </div>
     </div>
   </body>
 </html>

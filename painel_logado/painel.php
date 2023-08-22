@@ -42,6 +42,20 @@ if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
     } 
 }
 
+// trazendo quantidade anuncios de usuario conectado
+try{
+    // buscar quantidade de anuncios
+    $sql = "SELECT id_anuncio, id_usuario FROM anuncio_pdo WHERE id_usuario = :idusuario ORDER BY id_anuncio ASC";
+    $dados = array(':idusuario' => $_SESSION['idusuario']);
+            $stmt = $pdo->prepare($sql);
+            if($stmt->execute($dados)){
+                $quantidadeAnuncios = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            } else {
+                die("falha ao buscar anuncio do usuario");
+            }
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +67,7 @@ if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
     <title>Painel <?php echo $_SESSION['nome']?></title>
     <link rel="icon" href="../images/logo.png" />
     <link rel="stylesheet" href="../style/painel_logado.css">
+    <link rel="stylesheet" href="../style/modal.css">
 </head>
 <body>
     <header>
@@ -60,7 +75,7 @@ if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
             <h1>Bem vindo, <?php echo $_SESSION['nome']?>!</h1>
         </div>
         <nav>
-            <a href="../pagina de usuario/userProfile.php" title="Abrir para perfil"><ion-icon class="user-icon" name="person-circle-outline"></ion-icon></a>
+            <div class="hover-icon" onclick=see_profile() title="Abrir perfil"><ion-icon class="user-icon" name="person-circle-outline"></ion-icon>Visualizar Perfil</div>
             <ul><a href="../anuncio/cadastrar_anuncio.php">Inserir anuncio</a></ul>
             <!-- se 1, atualiza a pagina verifica IF em cima e retorna sql com dados apenas do usuario -->
             <ul><a href="./painel.php?meus_anuncios=1">Meus anuncios</a></ul>
@@ -70,22 +85,35 @@ if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
         </nav>
     </header>
     <main>
-    <?php
-      if(isset($_SESSION['anuncio_concluido'])): 
-      ?>
+        <div id="open_modal" class="modal ">
+            <div class="modal-content">
+                <div class="name_profile">
+                    <h1><?php echo $_SESSION['nome'] ?></h1>
+                    <hr>
+                </div>
+                <div class="email">
+                    <strong><p>Email:</p></strong>
+                    <sub><?php echo $_SESSION['email']?></sub>
+                    <hr>
+                </div>
+                <div class="phone_profile">
+                    <strong><p>Telefone:</p></strong>
+                    <sub><?php echo $_SESSION['telefone'] ?></sub>
+                    <hr>
+                </div>
+                <div class="announcement_posted">
+                <strong><p>Anuncios Postados: <?php echo count($quantidadeAnuncios)?><a href="./painel.php?meus_anuncios=1">Exibir</a></p></strong>
+                    <hr>
+                </div>
+            </div>
+    </div>
+        <section class="announcement" id="announcement_modal">
+    <?php if(isset($_SESSION['anuncio_concluido'])): ?>
             <div class=""><p><?php echo$_GET['anuncio_concluido'] ?></p></div>
-      <?php 
-      endif; 
-      unset($_SESSION['anuncio_concluido']);
-      ?>
-    <?php
-      if(isset($_SESSION['anuncio_erro'])): 
-      ?>
+      <?php endif; unset($_SESSION['anuncio_concluido']); ?>
+    <?php if(isset($_SESSION['anuncio_erro'])): ?>
       <div class=""><p><?php echo$_GET['anuncio_erro'] ?> </p></div>
-      <?php 
-      endif; 
-      unset($_SESSION['anuncio_erro']);
-      ?>
+      <?php endif; unset($_SESSION['anuncio_erro']); ?>
 
       <!-- imprimindo anuncios -->
       <?php if(!empty($anuncios)) { ?>
@@ -93,8 +121,7 @@ if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
             <!-- COMEÇO ANUNCIO -->
         <div class="content">
             <div class="header-card">
-                <!-- colocar <a> e abrir modal -->
-                <div title="Postado por: <?php echo $a["nomeusuariopostado"]?>"><ion-icon class="user-icon" name="person-outline"></ion-icon></div>
+                <div title="Postado por: <?php echo $a["nomeusuariopostado"]?>" ><ion-icon class="user-icon" name="person-outline"></ion-icon></div>
             <h2 class="tituloProduto"><?php echo $a['titulo'] ?></h2>
             <!-- CASO ANUNCIO DO USUARIO -->
             <?php if($a['id_usuario'] == $_SESSION['idusuario']): ?>
@@ -109,9 +136,10 @@ if(!empty($_GET['meus_anuncios']) && $_GET['meus_anuncios'] == 1){
         <!-- FIM ANUNCIO -->
             <?php }?>
         <?php } ?>
-
+        </section>
     </main>
 
+<script src="../script/modal.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </body>
 </html>

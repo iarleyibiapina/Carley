@@ -45,7 +45,7 @@ if(!empty($_GET['id_anuncio'])){
     <title>Painel <?php echo $_SESSION['nome']?></title>
     <link rel="icon" href="../images/logo.png" />
     <link rel="stylesheet" href="../style/painel_logado.css">
-    <link rel="stylesheet" href="./anuncio.css">
+    <link rel="stylesheet" href="../style/anuncio.css">
 </head>
 <body>
     <header>
@@ -64,7 +64,6 @@ if(!empty($_GET['id_anuncio'])){
             <form action="processa_anuncio.php?id_anuncio=<?php echo $result['id_anuncio'];?>" method="post">
                 <div class="inputs">
                 <input type="text" value="<?php echo $result['titulo'] ?>" autofocus placeholder="Titulo" name="titulo" maxlength="50">
-                <!-- <textarea style="resize:none;" value="<?php echo $result['descricao'] ?>" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30"></textarea> -->
                 <textarea style="resize:none;" value="" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30"><?php echo $result['descricao'] ?></textarea>
                 <input type="file" name="foto">
                 </div>

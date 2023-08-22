@@ -9,8 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../images/logo.png" />
     <title>Cadastro</title>
-    <link rel="stylesheet" href="form.css" />
-    <!-- <link rel="stylesheet" href="../style/warning.css" /> -->
+    <link rel="stylesheet" href="../style/form.css" />
     <link rel="stylesheet" href="../style/warning.css">
   </head>
   <body>
@@ -43,13 +42,10 @@ session_start();
         <input type="password" name="senha" placeholder="Nova senha" />
         <!-- telefone -->
         <input type="text" class="telefone" name="telefone" placeholder="Telefone" />
-        <!-- <input type="tel" class="telefone" name="telefone" placeholder="Telefone" /> -->
         <!-- data nascimento -->
-        <!-- <input type="text" class="data" name="dataNascimento" placeholder="Data Nascimento" /> -->
         <input type="date" class="data" name="dataNascimento" placeholder="Data Nascimento" />
         <!-- email -->
         <input type="text" class="email" name="email" placeholder="Email" />
-        <!-- <input type="email" class="email" name="email" placeholder="Email" /> -->
         <div class="btn">
           <input type="submit" name="cadastro" value="Cadastro" />
           <div class="btn_invisivel">

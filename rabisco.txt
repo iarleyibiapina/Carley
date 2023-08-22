@@ -1,30 +1,12 @@
 2.0 utilizando PDO.
 
-27/07/2023
-objetivo.: 
--definir limite no titulo (limite 50 mas ainda vaza o editar e excluir)
--criar uma area de perfil do usuario
--criar um pequeno icone que fica dentro do conteudo onde exibe o usuario que postou.
+22/08/2023
 
+objetivo.: 
 
 
 BUGS: 
 
-
-
-CONSERTAR BACK TO TOP
-
-
-usar sidenav push do 
-https://www.w3schools.com/howto/howto_js_sidenav.asp
-
-
-SIDENAV:
-
-filtro de elementos(que vai aparecer)
-https://www.w3schools.com/howto/howto_js_filter_elements.asp
-sair
-whatsapp (entrar em contato)
 
 SQL
 
@@ -40,7 +22,8 @@ CREATE TABLE usuario(
 		id_anuncio serial,
 		id_usuario integer,
 		titulo varchar(255),
-		descricao varchar(255)
+		descricao varchar(255),
+		nomeusuariopostado varchar(255)
 	);
 
 	

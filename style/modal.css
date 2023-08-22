@@ -1,0 +1,43 @@
+/* modal posição padrao/escondida */
+.modal {
+  position: absolute;
+  translate: calc(-110%);
+  width: 300px;
+  height: 300px;
+  background-color: var(--gray);
+  z-index: 2;
+  padding: 15px;
+  top: 1.5vh;
+  border-radius: 0 20px 20px 0;
+  border: 4px solid var(--orange);
+  border-left: none;
+  box-shadow: 1px 2px 3px 3px #636363;
+}
+
+/* modal quando for ativado */
+.open {
+  transform: translateX(0%);
+  transition: 3s;
+}
+
+.modal-content {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+}
+
+.name_profile {
+  max-width: 280px;
+  max-height: 80px;
+  overflow-y: hidden;
+  word-wrap: break-word;
+  font-style: italic;
+}
+
+.announcement_posted a {
+  text-decoration: none;
+  color: var(--orange);
+  border-radius: 10px;
+  padding: 5px;
+}
