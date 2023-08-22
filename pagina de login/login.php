@@ -62,39 +62,3 @@ if(!empty($_POST)){
 }
 die();
 ?>
-<?php
-/*
-session_start();
-include('../php/conexao.php');
-
-if(empty($_POST['nome']) || empty($_POST['senha'])){
-    $_SESSION['espaco_branco'] = true;
-    header('Location: form.php');
-    exit();
-};
-
-$nome = pg_escape_string($conexao,$_POST['nome']);
-$senha = pg_escape_string($conexao,$_POST['senha']);
-
-$query = "select * from usuario where nome = '$nome' and senha = '$senha';";
-
-$result = pg_query($conexao,$query);
-$row = pg_num_rows($result);
-
-if($row == 1){
-    $usuario_bd = pg_fetch_assoc($result);
-    $_SESSION['usuario'] = [
-        'user_id' => $usuario_bd['id'],
-        'username' => $usuario_bd['nome']
-    ];
-    header('Location: ../painel_logado/painel.php');
-    exit();
-}
-else{
-    // session = true para ativar caixa de aviso
-    $_SESSION['login_incorreto'] = true;
-    header('Location: form.php');
-    exit();
-};
-*/
-?>
