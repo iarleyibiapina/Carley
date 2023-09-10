@@ -41,6 +41,7 @@ if(!empty($_GET['id_anuncio'])){
     <link rel="icon" href="../images/logo.png" />
     <link rel="stylesheet" href="../style/painel_logado.css">
     <link rel="stylesheet" href="../style/anuncio.css">
+    <link rel="stylesheet" href="../style/media.css">
 </head>
 <body>
     <header>
@@ -48,10 +49,12 @@ if(!empty($_GET['id_anuncio'])){
             <h1>Excluir Anuncio:</h1>
         </div>
         <nav>
-            <ul><a href="../anuncio/cadastrar_anuncio.php">Inserir anuncio</a></ul>
-            <ul><a href="../painel_logado/painel.php?meus_anuncios=1">Meus anuncios</a></ul>
-            <ul><a href="../painel_logado/painel.php?meus_anuncios=0">Ver todos anuncios</a></ul>
-            <ul><a class="logout" href="logout.php">Sair</a></ul>
+            <ul class="nav-list">
+            <li><a href="../anuncio/cadastrar_anuncio.php">Inserir anuncio</a></li>
+            <li><a href="../painel_logado/painel.php?meus_anuncios=1">Meus anuncios</a></li>
+            <li><a href="../painel_logado/painel.php?meus_anuncios=0">Ver todos anuncios</a></li>
+            <li><a class="logout" href="logout.php">Sair</a></li>
+            </ul>
         </nav>
     </header>
     <div class="container">

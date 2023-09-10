@@ -16,58 +16,109 @@ body {
   background-color: var(--orange);
 }
 
+/* INICIO HEADER */
 header {
-  box-shadow: 200px 10px 10px 0px var(--blue);
+  box-shadow: 5px 10px 10px var(--blue);
   /* funcionar no navegador safare */
-  -webkit-box-shadow: 10px 0px 10px 0px var(--blue);
+  -webkit-box-shadow: 0px 10px 10px var(--blue);
   /* funcionar no mozila */
-  -moz-box-shadow: 10px 0px 10px 0px var(--blue);
-}
-
-header,
-header nav {
+  -moz-box-shadow: 0px 10px 10px var(--blue);
   background-color: var(--blue);
+  height: 5em;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 5px 20px;
   color: var(--gray);
 }
 
-nav ul a {
+/* modal navbar */
+nav {
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 5px 20px;
+  color: var(--gray);
+}
+/* botao para fechar/abrir */
+.btn-navbar {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--orange);
+  font-size: 2em;
+  color: #fff;
+}
+
+.nav-list {
+  display: flex;
+}
+
+nav li a {
   text-decoration: none;
   color: var(--gray);
 }
-nav ul a.logout {
+
+/* header,
+header nav {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  color: var(--gray);
+} */
+
+nav li a {
+  text-decoration: none;
+  color: var(--gray);
+}
+nav li a.logout {
   color: red;
 }
-nav ul:hover {
-  scale: 1.2;
-  padding: 0 20px;
-  text-shadow: 4px 4px black;
-  transition: 200ms ease;
-}
 
-nav .hover-icon {
+nav .hover-icon,
+.nome .hover-icon {
   text-align: center;
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 
-nav .hover-icon:hover {
+.nome .hover-icon:hover {
+  scale: 1.2;
+  padding-left: 30px;
+  text-shadow: 4px 4px black;
+  transition: 200ms ease;
+}
+
+nav li {
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+nav li:hover {
   scale: 1.2;
   padding: 0 20px;
   text-shadow: 4px 4px black;
   transition: 200ms ease;
 }
 
-ul {
+li {
   padding: 0 20px;
+  list-style: none;
 }
 
 .user-icon {
   cursor: pointer;
 }
+
+/* FIM HEADER */
 
 main {
   width: 100%;

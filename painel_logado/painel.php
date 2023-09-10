@@ -68,21 +68,29 @@ try{
     <link rel="icon" href="../images/logo.png" />
     <link rel="stylesheet" href="../style/painel_logado.css">
     <link rel="stylesheet" href="../style/modal.css">
+    <link rel="stylesheet" href="../style/media.css">
 </head>
 <body>
     <header>
         <div class="nome">
             <h1>Bem vindo, <?php echo $_SESSION['nome']?>!</h1>
-        </div>
-        <nav>
             <div class="hover-icon" onclick=see_profile() title="Abrir perfil"><ion-icon class="user-icon" name="person-circle-outline"></ion-icon>Visualizar Perfil</div>
-            <ul><a href="../anuncio/cadastrar_anuncio.php">Inserir anuncio</a></ul>
+        </div>
+        <!-- NAVBAR -->
+        <nav>
+        <div class="btn-navbar" id="btn-abrir-navbar">
+          <ion-icon name="menu-outline"></ion-icon>
+        </div>
+            <ul class="nav-list">
+            <li><a href="../anuncio/cadastrar_anuncio.php">Inserir anuncio</a></li>
             <!-- se 1, atualiza a pagina verifica IF em cima e retorna sql com dados apenas do usuario -->
-            <ul><a href="./painel.php?meus_anuncios=1">Meus anuncios</a></ul>
+            <li><a href="./painel.php?meus_anuncios=1">Meus anuncios</a></li>
             <!-- se 0, atualiza pagina passa no IF, e exibe todos -->
-            <ul><a href="./painel.php?meus_anuncios=0">Ver todos anuncios</a></ul>
-            <ul><a class="logout" href="logout.php">Sair</a></ul>
+            <li><a href="./painel.php?meus_anuncios=0">Ver todos anuncios</a></li>
+            <li><a class="logout" href="logout.php">Sair</a></li>
+            </ul>
         </nav>
+        <!-- FIMNAVBAR -->
     </header>
     <main>
         <div id="open_modal" class="modal ">
@@ -141,6 +149,7 @@ try{
 
 <script src="../script/modal.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="../script/navBar.js"></script>
 </body>
 </html>
 

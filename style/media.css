@@ -1,0 +1,82 @@
+@media (max-width: 768px) {
+  html {
+    overflow-x: hidden;
+  }
+
+  header {
+    margin-bottom: 2rem;
+    height: 5.5rem;
+  }
+
+  header h1 {
+    font-size: 1rem;
+  }
+
+  header nav {
+    font-size: 0.7rem;
+  }
+
+  .btn-navbar {
+    display: flex;
+  }
+  .btn:hover {
+    opacity: 0.4;
+    transition: 0.3s ease-out;
+  }
+
+  .icone-navbar:hover {
+    opacity: 0.8;
+    transition: 0.2s ease-out;
+  }
+
+  nav ul {
+    box-shadow: 5px 10px 10px var(--blue);
+    border-radius: 0 0 0 20%;
+  }
+
+  .nav-list {
+    position: absolute;
+    top: 7vh;
+    display: none;
+    right: 0;
+    width: 30vw;
+    height: 30vh;
+    z-index: 2;
+    background-color: var(--blue);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+  }
+
+  .nav-list li {
+    margin-left: 0;
+    opacity: 0;
+  }
+
+  .nav-list.active {
+    transform: translateX(0);
+  }
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  header {
+    padding: 10px 20px;
+    margin-bottom: 1rem;
+  }
+  header h1 {
+    font-size: 1.5em;
+  }
+}
