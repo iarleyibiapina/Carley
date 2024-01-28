@@ -53,7 +53,7 @@ if(!empty($_GET['id_anuncio'])){
             <li><a href="../anuncio/cadastrar_anuncio.php">Inserir anuncio</a></li>
             <li><a href="../painel_logado/painel.php?meus_anuncios=1">Meus anuncios</a></li>
             <li><a href="../painel_logado/painel.php?meus_anuncios=0">Ver todos anuncios</a></li>
-            <li><a class="logout" href="logout.php">Sair</a></li>
+            <li><a class="logout" href="../logout/logout.php">Sair</a></li>
             </ul>
         </nav>
     </header>

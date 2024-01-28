@@ -29,7 +29,7 @@ if(empty($_SESSION)){
             <li><a href="../anuncio/cadastrar_anuncio.php">Inserir anuncio</a></li>
             <li><a href="../painel_logado/painel.php?meus_anuncios=1">Meus anuncios</a></li>
             <li><a href="../painel_logado/painel.php?meus_anuncios=0">Ver todos anuncios</a></li>
-            <li><a class="logout" href="logout.php">Sair</a></li>
+            <li><a class="logout" href="../logout/logout.php">Sair</a></li>
             </ul>
         </nav>
     </header>
@@ -38,9 +38,9 @@ if(empty($_SESSION)){
             <form action="./processa_anuncio.php" method="post">
                 <div class="inputs">
                     <!-- titulo -->
-                <input type="text" autofocus placeholder="Titulo" name="titulo" maxlength="50">
+                <input required type="text" autofocus placeholder="Titulo" name="titulo" maxlength="50">
                 <!-- descricao -->
-                <textarea style="resize:none;" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30"></textarea>
+                <textarea required style="resize:none;" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30"></textarea>
                 <!-- arquivo de foto / inutil -->
                 <input type="file" name="foto">
                 </div>

@@ -61,7 +61,7 @@ if(!empty($_GET['id_anuncio'])){
                 <li><a href="../painel_logado/painel.php?meus_anuncios=0">Ver todos anuncios</a>
                 </li>
                 <li>
-                    <a class="logout" href="logout.php">Sair</a>
+                    <a class="logout" href="../logout/logout.php">Sair</a>
                 </li>
             </ul>
         </nav>
@@ -70,8 +70,8 @@ if(!empty($_GET['id_anuncio'])){
         <div class="form-container">
             <form action="processa_anuncio.php?id_anuncio=<?php echo $result['id_anuncio'];?>" method="post">
                 <div class="inputs">
-                <input type="text" value="<?php echo $result['titulo'] ?>" autofocus placeholder="Titulo" name="titulo" maxlength="50">
-                <textarea style="resize:none;" value="" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30"><?php echo $result['descricao'] ?></textarea>
+                <input required type="text" value="<?php echo $result['titulo'] ?>" autofocus placeholder="Titulo" name="titulo" maxlength="50">
+                <textarea required style="resize:none;" value="" placeholder="Descrição" maxlength="255" name="descricao" rows="5" cols="30"><?php echo $result['descricao'] ?></textarea>
                 <input type="file" name="foto">
                 </div>
                 <div class="btn">    
