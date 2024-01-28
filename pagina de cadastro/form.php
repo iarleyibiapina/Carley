@@ -14,38 +14,27 @@ session_start();
   </head>
   <body>
     <div class="all">
-
-      <!-- AVISOS -->
-
-      <!-- existente -->
-      <?php 
-      if(isset($_SESSION['usuario_existente'])): 
-      ?>
-      <div class="error"><p>Este usuário já existe!</p></div>
-      <?php 
-      endif;
-      unset($_SESSION['usuario_existente']);
-      ?>
-      <!-- espaço_branco -->
-      <?php if(isset($_SESSION['espaco_branco'])): ?>
-      <div class="error"><p>Há espaço em branco!</p></div>
-      <?php 
-      endif; 
-      unset($_SESSION['espaco_branco']);
-      ?>
       <!-- FORMULARIO -->
       <form class="box" action="cadastro.php" method="post">
         <h1>Cadastro</h1>
+        <!-- espaço_branco -->
+        <?php if(isset($_SESSION['espaco_branco'])) {?>
+        <?php echo "<span class='error'>  Há espaço em branco! <br></span>" ?>
+        <?php } unset($_SESSION['espaco_branco']);?>
+            <!-- incorreto -->
+        <?php if(!empty($_GET['msg_Erro'])) {?>
+        <?php echo "<span class='error'> Nome de usuario existente! <br></span>" ?>
+        <?php } ?>
         <!-- nome -->
-        <input required=""; type="text" name="nome" placeholder="Nome" />
+        <input required type="text" name="nome" placeholder="Nome" />
         <!-- senha -->
-        <input type="password" name="senha" placeholder="Nova senha" />
+        <input required type="password" name="senha" placeholder="Nova senha" />
         <!-- telefone -->
-        <input type="text" class="telefone" name="telefone" placeholder="Telefone" />
+        <input required type="text" class="telefone" name="telefone" placeholder="Telefone" />
         <!-- data nascimento -->
-        <input type="date" class="data" name="dataNascimento" placeholder="Data Nascimento" />
+        <input required type="date" class="data" name="dataNascimento" placeholder="Data Nascimento" />
         <!-- email -->
-        <input type="text" class="email" name="email" placeholder="Email" />
+        <input required type="text" class="email" name="email" placeholder="Email" />
         <div class="btn">
           <input type="submit" name="cadastro" value="Cadastro" />
           <div class="btn_invisivel">

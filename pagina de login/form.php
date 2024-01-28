@@ -23,24 +23,21 @@ session_start();
       endif; 
       unset($_SESSION['login_incorreto']);
       ?>
-      <!-- espaço_branco -->
-      <?php 
-      if(isset($_SESSION['espaco_branco'])): 
-      ?>
-      <div class="error"><p>Há espaço em branco!</p></div>
-      <?php 
-      endif; 
-      unset($_SESSION['espaco_branco']);
-      ?>
-      <div class="container">
-      <?php if(!empty($_GET['msgErroAutenticacao'])) {?>
-        <?php echo $_GET['msgErroAutenticacao']; ?>
-      <?php } ?>
-      <?php if(!empty($_GET['msgErroVerificacao'])) {?>
-        <?php echo $_GET['msgErroVerificacao']; ?>
-      <?php } ?>
-      <form class="box" action="login.php" method="post">
-        <h1>Login</h1>
+
+<div class="container">
+        <?php if(!empty($_GET['msgErroVerificacao'])) {?>
+          <?php echo $_GET['msgErroVerificacao']; ?>
+          <?php } ?>
+          <form class="box" action="login.php" method="post">
+            <h1>Login</h1>
+            <!-- espaço_branco -->
+        <?php if(isset($_SESSION['espaco_branco'])) {?>
+        <?php echo "<span class='error'> Há espaço em branco! <br></span>" ?>
+        <?php } unset($_SESSION['espaco_branco']);?>
+            <!-- incorreto -->
+        <?php if(!empty($_GET['msgErroAutenticacao'])) {?>
+        <?php echo "<span class='error'> Nome ou senha incorreto! <br></span>" ?>
+        <?php } ?>
         <input type="text" placeholder="Email" name="email" />
         <input type="password" placeholder="Password" name="senha" />
         <div class="btn">

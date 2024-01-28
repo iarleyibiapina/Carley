@@ -1,4 +1,5 @@
 <?php
+include ('../valida.php');
 require_once('../conecta/conexao.php');
 session_start();
 if(empty($_SESSION)){
@@ -6,6 +7,8 @@ if(empty($_SESSION)){
     die();
 }
 // --------------------------------
+
+
 
 if(!empty($_POST)){
 //chegando dados do formulario pelo POST, verifica se é CADastro / ALTerar / DELetar
@@ -19,13 +22,15 @@ if($_POST['enviarDados'] == 'CAD'){
     //PDO
     $stmt = $pdo->prepare($sql);
     //DADOS
+
+    // tratando dados
     $dados = array(
         // id usuario da tabela usuario vai para tabela anuncio 
         // conteudo da SESSION é passada
         ':id_usuario' => $_SESSION['idusuario'],
-        ':titulo' => $_POST['titulo'],
-        ':descricao' => $_POST['descricao'],
-        ':nomeusuariopostado' => $_SESSION['nome']
+        ':titulo' => tratar($_POST['titulo']),
+        ':descricao' => tratar($_POST['descricao']),
+        ':nomeusuariopostado' => tratar($_SESSION['nome'])
     );
     //INSERT
     if($stmt->execute($dados)){

@@ -1,5 +1,6 @@
 <?php
 include('../conecta/conexao.php');
+include('../valida.php');
 session_start();
 // require_once '../conecta/conexao.php';
 
@@ -16,16 +17,34 @@ if(!empty($_POST)){
  //chega dados do POST para inserir no BD   
     //obtendo dados do POST
     try{
-        //SQL
-        $sql = "INSERT INTO usuario (nome,senha,email,telefone,data_nascimento) VALUES (:nome, :senha, :email, :telefone, :dataNascimento)";
-
-        //PDO
-        $stmt = $pdo->prepare($sql);
-
-        //
-
-        //organizando dados para sql
+        // caso usuario exista
+        $testeUsuario = "SELECT * FROM usuario WHERE nome = :nome AND email = :email";
+        $stmt = $pdo->prepare($testeUsuario);
         $dados = [
+            ':nome' => $_POST['nome'],
+            ':email' => $_POST['email'],
+        ];
+        $stmt->execute($dados);
+        $stmt->fetchAll();
+        if($stmt->rowCount() >= 1){
+            header("location: ./form.php?msg_Erro=Dados existentes");
+            die();
+            // die
+        } else {
+            // if(!validaEmail($_POST['email']) && !validaNome($_POST['nome'])){ 
+            //     die(header("location: ../index.html?validaEmailOuNome"));
+            // }
+            if(!validaEmail($_POST['email'])){ 
+                die(header("location: ../index.html?validaEmail"));
+            }
+            //SQL
+            $sql = "INSERT INTO usuario (nome,senha,email,telefone,data_nascimento) VALUES (:nome, :senha, :email, :telefone, :dataNascimento)";
+            
+            //PDO
+            $stmt = $pdo->prepare($sql);
+            
+            //organizando dados para sql
+            $dados = [
             ':nome' => $_POST['nome'],
             ':senha' => $_POST['senha'],
             // senha criptografada
@@ -37,12 +56,12 @@ if(!empty($_POST)){
 
         //executando INSERCAO COM SQL
         if($stmt->execute($dados)){
-             header("location: ../index.html?msgSucesso= Cadastro Sucedido");
+            header("location: ../index.html?msgSucesso= Cadastro Sucedido");
         }
-    
+        }
     // caso de erro no processo de cadastro
     } catch (PDOException $e) {
-        header("location: ../index.html?msgErro= Falha ao cadastrar...");
+        header("location: ./form.php?msgErro= Falha ao cadastrar...");
         die($e->getMessage());
     }
 }

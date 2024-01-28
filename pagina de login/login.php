@@ -51,14 +51,14 @@ if(!empty($_POST)){
         } else {
             //autenticação falhada
             session_destroy();
-            header("Location: form.php?msgErroAutenticacao=Não foi possível autenticar");
+            header("Location: form.php?msgErroAutenticacao=Não foi possível autenticar dados");
         }
     } catch (PDOException $e) {
         die($e->getMessage());
     }
 } else {
     // se processo login der erro antes de verificar
-    header("location: ../form.php?msgErroVerificacao=Não foi possível Verificar");
+    header("location: ../form.php?msgErroVerificacao=Não foi possível Verificar Formulario");
 }
 die();
 ?>
